@@ -3,7 +3,7 @@ module.exports = {
     "filename": "[name].pack.js"
   },
   "entry": {
-    "index": "./index"
+    "index": "./src/index.js"
   },
   "module": {
     "rules": [
@@ -12,8 +12,8 @@ module.exports = {
           "loader": "babel-loader",
           "options": {
             "presets": [
-              "babel-preset-env",
-              "babel-preset-react"
+              "@babel/preset-env",
+              "@babel/preset-react"
             ]
           }
         },
