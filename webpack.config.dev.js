@@ -6,13 +6,13 @@ module.exports = {
     "mode": "development",
     "devtool": "inline-source-map",
     "devServer": {
-        "contentBase": "./dist",
+        "contentBase": __dirname,
         "historyApiFallback": true
     },
     "entry": "./src/index.js",
     "output": {
         "filename": "[name].pack.js",
-        "path": path.resolve(__dirname, "dist")
+        "path": path.resolve(__dirname, "dist"),
     },
     "plugins": [
         new CleanWebpackPlugin(),
@@ -25,17 +25,25 @@ module.exports = {
     "module": {
         "rules": [
             {
-            "use": {
-                "loader": "babel-loader",
-                "options": {
-                "presets": [
-                    "@babel/preset-env",
-                    "@babel/preset-react"
-                ]
-                }
+                "use": {
+                    "loader": "babel-loader",
+                    "options": {
+                    "presets": [
+                        "@babel/preset-env",
+                        "@babel/preset-react"
+                    ]
+                    }
+                },
+                "exclude": /node_modules/,
+                "test": /\.js$/
             },
-            "exclude": /node_modules/,
-            "test": /\.js$/
+            {
+                "test": "/\.(png|jpe?g|gif)$/i",
+                use: [
+                    {
+                        "loader": "file-loader"
+                    }
+                ]
             }
         ]
     }

@@ -1,3 +1,5 @@
+// Jumbotron Styling
+
 import styled from 'styled-components'
 
 // First real example of styled components usage, the strength of this
@@ -24,11 +26,34 @@ export const Inner = styled.div`
     }
 `;
 
-export const Item = styled.div`
-    display: flex
+// Pane - used to divide up the space available for a group of elements 50/50
+export const Pane = styled.div`
+    width: 50%;
+
+    @media (max-width: 1000px) {
+        width: 100%;
+        padding: 0 45px;
+        text-align: center;
+    }
 `;
 
-export const Container = styled.section``;
+export const Item = styled.div`
+    display: flex;
+    border-bottom: 8px solid #222;
+    padding: 50px 5%;
+    color: white;
+    overflow: hidden;
+`;
+
+export const Container = styled.section`
+    background-color: black;
+
+    @media (max-width: 1000px) {
+        ${Item}:last-of-type h2 {
+            margin-bottom: 50px;
+        }
+    }
+`;
 
 // title - 
 export const Title = styled.h1`
