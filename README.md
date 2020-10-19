@@ -1,34 +1,24 @@
-# title(){
-		
-		return this.options.title || this.options.name;
-	}
+# Netflix Clone
 
 Quick start:
 
 ```
 $ yarn # npm install
 $ yarn build # npm run build
-````
+```
 
 ## Development
 
-Run Webpack in watch-mode to continually compile the JavaScript as you work:
+Run Webpack in watch-mode to continually compile the JavaScript and output to [localhost:8080](http://localhost:8080/) as you work:
 
 ```
-$ yarn watch # npm run watch
+$ yarn start # npm run start
 ```
 
-## Supporting Scrimba
+## etc.
 
-Since 2017, we have created over 20 free courses on Scrimba, and we're going to
-continue launching free courses. But to pay our bills, we have to charge once
-in a while. So if you've ever wanted to "give back" to Scrimba, you can do that by buying
-	one of our paid courses
+### Recommended VSCode extensions
+- vscode-styled-components : Syntax highlighting for styled-components
 
-- [Become a professional React developer](https://scrimba.com/course/greact)
-- [The Responsive Web Design Bootcamp](https://scrimba.com/course/gresponsive)
-- [The Ultimate JavaScript Bootcamp](https://scrimba.com/course/gjavascript)
-
-	It would also mean the world to us if you share the courses.  
-
-Happy Coding!
+### Credit to Scrimba
+This project was built while following along with Module 13 of [https://scrimba.com/learn/frontend/](The Frontend Developer Career Path) created by Karl Hadwen.
