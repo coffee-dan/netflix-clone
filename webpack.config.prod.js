@@ -14,6 +14,7 @@ module.exports = {
         new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({
             filename: "index.html",
+            favicon: 'favicon.ico',
             inject: true,
             template: path.resolve(__dirname, "index.html")
         })
@@ -21,17 +22,25 @@ module.exports = {
     "module": {
         "rules": [
             {
-            "use": {
-                "loader": "babel-loader",
-                "options": {
-                "presets": [
-                    "@babel/preset-env",
-                    "@babel/preset-react"
-                ]
-                }
+                "use": {
+                    "loader": "babel-loader",
+                    "options": {
+                    "presets": [
+                        "@babel/preset-env",
+                        "@babel/preset-react"
+                    ]
+                    }
+                },
+                "exclude": /node_modules/,
+                "test": /\.js$/
             },
-            "exclude": /node_modules/,
-            "test": /\.js$/
+            {
+                "test": "/\.(png|jpe?g|gif|ico)$/i",
+                use: [
+                    {
+                        "loader": "file-loader"
+                    }
+                ]
             }
         ]
     }

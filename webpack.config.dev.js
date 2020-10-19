@@ -18,6 +18,7 @@ module.exports = {
         new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({
             filename: "index.html",
+            favicon: 'favicon.ico',
             inject: true,
             template: path.resolve(__dirname, "index.html")
         })
@@ -38,7 +39,7 @@ module.exports = {
                 "test": /\.js$/
             },
             {
-                "test": "/\.(png|jpe?g|gif)$/i",
+                "test": "/\.(png|jpe?g|gif|ico)$/i",
                 use: [
                     {
                         "loader": "file-loader"
