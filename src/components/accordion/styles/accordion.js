@@ -9,13 +9,14 @@ export const Container = styled.section`
 
 // Frame - "an items holder"
 export const Frame = styled.div`
-    margin-bottom: 40px;
-    max-width: 1200px;
+    margin-bottom: 10px;
+    max-width: 815px;
 `
 
 // Inner
 export const Inner = styled.div`
     display: flex;
+    box-sizing: border-box;
     padding: 70px 45px;
     flex-direction: column;
     max-width: 815px;
