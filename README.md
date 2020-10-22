@@ -18,7 +18,8 @@ $ yarn start # npm run start
 ## etc.
 
 ### Recommended VSCode extensions
-- vscode-styled-components : Syntax highlighting for styled-components
+- vscode-styled-components : Syntax highlighting for styled-components <br />
+-- any styled-components snippets extension
 
 ### Credit to Scrimba
-This project was built while following along with Module 13 of [https://scrimba.com/learn/frontend/](The Frontend Developer Career Path) created by Karl Hadwen.
+This project was built while following along with Module 13 of [The Frontend Developer Career Path](https://scrimba.com/learn/frontend/) created by Karl Hadwen.
