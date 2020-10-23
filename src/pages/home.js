@@ -3,7 +3,7 @@ import { FaqsContainer } from '../containers/faqs'
 import { JumbotronContainer } from '../containers/jumbotron'
 import { FooterContainer } from '../containers/footer'
 import { HeaderContainer } from '../containers/header'
-import { OptForm } from '../components'
+import { Feature, OptForm } from '../components'
 
 export default function Home() {
     return (
@@ -11,11 +11,17 @@ export default function Home() {
             {/* Need to figure out what goes in header, a main feature type thing */}
             <HeaderContainer>
                 <OptForm>
-                    <OptForm.Input placeholder="Email Address" />
-                    <OptForm.Button>Try it now</OptForm.Button>
-                    <OptForm.Break />
+                    <Feature>
+                        <Feature.Title>Unlimited movies, TV shows, and more.</Feature.Title>
+                        <Feature.SubTitle>Watch anywhere. Cancel anytime.</Feature.SubTitle>
+                    </Feature>
+
+                
                     <OptForm.Text>Ready to watch? Enter your email to create or restart
                     your membership.</OptForm.Text>
+                    <OptForm.Break />
+                    <OptForm.Input placeholder="Email Address" />
+                    <OptForm.Button>Get started</OptForm.Button>
                 </OptForm>
             </HeaderContainer>
             <JumbotronContainer />
