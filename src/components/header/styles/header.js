@@ -16,9 +16,9 @@ export const Background = styled.section`
 
 export const Container = styled.div`
     display: flex;
-    margin: 0 56px;
+    margin: 0 3.5rem;
     height: 64px;
-    padding: 18px 0;
+    padding-top: 16px;
     justify-content: space-between;
     align-items: center;
     
@@ -26,9 +26,7 @@ export const Container = styled.div`
         display: flex;
     }
     
-    @media (max-width: 1000px) {
-        margin: 0 30px;
-    }
+    /* rem units allow media queries to be avoided */
 `
 
 export const Link = styled.p`
@@ -51,12 +49,15 @@ export const ButtonLink = styled(ReachRouterLink)`
     display: block;
     background-color: #e50914;
     width: 84px;
-    height: fit-content;
+    line-height: normal;
     color: white;
     border: 0;
-    font-size: 15px;
+    font-size: 1rem;
+    /* font-weight here is effectively 400 but using keyword
+        to make it work for unknown reasons */
+    font-weight: regular;
     border-radius: 3px;
-    padding: 8px 17px;
+    padding: 7px 17px;
     cursor: pointer;
     text-decoration: none;
     box-sizing: border-box;
@@ -69,8 +70,8 @@ export const ButtonLink = styled(ReachRouterLink)`
 `
 
 export const Logo = styled.img`
-    height: 32px;
-    width: 108px;
+    height: 36px;
+    width: 134px;
     margin-right: 40px;
 
     @media (min-width: 1449px) {

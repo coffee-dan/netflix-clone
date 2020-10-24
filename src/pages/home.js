@@ -10,19 +10,18 @@ export default function Home() {
         <>
             {/* Need to figure out what goes in header, a main feature type thing */}
             <HeaderContainer>
-                <OptForm>
-                    <Feature>
-                        <Feature.Title>Unlimited movies, TV shows, and more.</Feature.Title>
-                        <Feature.SubTitle>Watch anywhere. Cancel anytime.</Feature.SubTitle>
-                    </Feature>
+                <Feature>
+                    <Feature.Title>Unlimited movies, TV shows, and more.</Feature.Title>
+                    <Feature.SubTitle>Watch anywhere. Cancel anytime.</Feature.SubTitle>
 
-                
-                    <OptForm.Text>Ready to watch? Enter your email to create or restart
-                    your membership.</OptForm.Text>
-                    <OptForm.Break />
-                    <OptForm.Input placeholder="Email Address" />
-                    <OptForm.Button>Get started</OptForm.Button>
-                </OptForm>
+                    <OptForm>                
+                        <OptForm.Text>Ready to watch? Enter your email to create or restart
+                        your membership.</OptForm.Text>
+                        <OptForm.Break />
+                        <OptForm.Input placeholder="Email Address" />
+                        <OptForm.Button>Get started</OptForm.Button>
+                    </OptForm>
+                </Feature>
             </HeaderContainer>
             <JumbotronContainer />
             <FaqsContainer />
