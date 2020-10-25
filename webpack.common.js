@@ -1,5 +1,4 @@
 const path = require("path")
-const { CleanWebpackPlugin } = require("clean-webpack-plugin")
 const HtmlWebpackPlugin = require("html-webpack-plugin")
 
 module.exports = {
@@ -9,9 +8,8 @@ module.exports = {
         filename: "[name].pack.js"
     },
     plugins: [
-        new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({
-            filename: "index.html",
+            filename: 'index.html',
             favicon: 'favicon.ico',
             inject: true,
             template: path.resolve(__dirname, "index.html")
@@ -20,7 +18,19 @@ module.exports = {
     module: {
         rules: [
             {
+                test: /\.(png|jpe?g|gif|svg)$/,
+                use: {
+                    loader: 'file-loader',
+                    options: {
+                        name: '[name][hash].[ext]',
+                        outputPath: 'images'
+                    }
+                }
+                
+            },
+            {
                 test: /\.js$/,
+                exclude: /node_modules/,
                 use: {
                     loader: "babel-loader",
                     options: {
@@ -30,16 +40,7 @@ module.exports = {
                         ]
                     }
                 },
-                exclude: /node_modules/
             },
-            {
-                test: "/\.(png|jpe?g|gif|ico)$/i",
-                use: [
-                    {
-                        loader: "file-loader"
-                    }
-                ]
-            }
         ]
     }
 };
