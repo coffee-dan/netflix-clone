@@ -1,11 +1,16 @@
 // Signup page
-import React, { useState } from 'react'
-import * as ROUTES from '../constants/routes'
-import { Form } from '../components'
+import React, { useState, useContext } from 'react'
+import { useHistory } from 'react-router-dom'
+import { FirebaseContext} from '../context/firebase'
 import { HeaderContainer } from '../containers/header'
 import { FooterContainer } from '../containers/footer'
+import { Form } from '../components'
+import * as ROUTES from '../constants/routes'
 
 export default function Signup() {
+    const history = useHistory()
+    const { firebase } = useContext(FirebaseContext)
+
     const [firstName, setFirstName] = useState('')
     const [emailAddress, setEmailAddress] = useState('')
     const [password, setPassword] = useState('')
@@ -15,8 +20,28 @@ export default function Signup() {
     let isInvalid = firstName === '' || emailAddress === '' || password === ''
 
     // handleSignup (pass an event)
+    // much of this is firebase specific authentication logic
+    // \TODO allow users to upload their own profile photo
     const handleSignup = (event) => {
         event.preventDefault()
+
+        firebase
+            .auth()
+            .createUserWithEmailAndPassword(emailAddress, password)
+            .then((result) =>
+                result.user
+                .updateProfile({
+                    displayName: firstName,
+                    photoURL: Math.floor( Math.random() * 5 ) + 1,
+                })
+                .then(() => {
+                    // clearing out form values so information does not persist
+                    setEmailAddress('')
+                    setPassword('')
+                    setError('')
+                    history.push(ROUTES.BROWSE)
+                })
+            ).catch((error) => setError(error.message))
     }
 
     return (
@@ -30,7 +55,7 @@ export default function Signup() {
                     {/* note: method="POST" is used here to ensure form-data
                         is sent as an HTTP post transaction and does not get appended
                         to the url */}
-                    <Form.Base onChange={handleSignup} method="POST">
+                    <Form.Base onSubmit={ handleSignup } method="POST">
                         <Form.Input 
                             placeholder="First name"
                             value={firstName}

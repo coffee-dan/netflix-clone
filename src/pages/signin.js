@@ -1,11 +1,15 @@
 // Signin Page
-import React, { useState } from 'react'
-import * as ROUTES from '../constants/routes'
-import { Form } from '../components'
+import React, { useState, useContext } from 'react'
+import { useHistory } from 'react-router-dom'
+import { FirebaseContext } from '../context/firebase'
 import { HeaderContainer } from '../containers/header'
 import { FooterContainer } from '../containers/footer'
+import { Form } from '../components'
+import * as ROUTES from '../constants/routes'
 
 export default function Sigin() {
+    const history = useHistory()
+    const { firebase } = useContext(FirebaseContext)
     // used to capture errors
     const [error, setError] = useState('')
     const [emailAddress, setEmailAddress] = useState('')
@@ -20,6 +24,18 @@ export default function Sigin() {
 
         // call in here to firebase to authenticate the user
         // if there's an error, populate the error state
+
+        firebase
+            .auth()
+            .signInWithEmailAndPassword(emailAddress, password)
+            .then(() => {
+                setEmailAddress('')
+                setPassword('')
+                setError('')
+                history.push(ROUTES.BROWSE)
+            })
+            .catch((error) => setError(error.message))
+                
     }
 
     return (
@@ -55,7 +71,7 @@ export default function Sigin() {
                     </Form.Base>
                 </Form>
             </HeaderContainer>
-            <FooterContainer></FooterContainer>
+            <FooterContainer />
         </>
     )
 }
