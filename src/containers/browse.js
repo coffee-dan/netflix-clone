@@ -1,12 +1,14 @@
 // Browse container
-import React, { useState, useContext } from 'react'
-import { Header } from '../components'
+import React, { useState, useContext, useEffect } from 'react'
+
+import { Loading, Header } from '../components'
 import * as ROUTES from '../constants/routes'
 import { FirebaseContext } from '../context/firebase'
 import { SelectProfileContainer } from './profiles'
-// can work with this container as it does not always show up, especially
-// considering infinite scroll
 import { FooterContainer } from './footer'
+
+// can work with FooterContainer to make it conditionally appear, especially
+// considering infinite scroll
 
 export function BrowseContainer() {
     const [category, setCategory] = useState('series')
@@ -21,8 +23,16 @@ export function BrowseContainer() {
         photoURL: "1"
     }
 
+    // useEffect is the React technique i have the least knowledge of 
+    useEffect(() => {
+        setTimeout(() => {
+            setLoading( false )
+        }, 3000)
+    }, [user])
+
     return profile.displayName ? (
         <>
+        {loading ? <Loading src={ user.photoURL } alt='loading' /> : <Loading.ReleaseBody />}
             <Header src="joker1" dontShowOnSmallViewPort>
                 <Header.Frame>
                     <Header.Group>
