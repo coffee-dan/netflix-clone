@@ -23,3 +23,6 @@ $ yarn start # npm run start
 
 ### Credit to Scrimba
 This project was built while following along with Module 13 of [The Frontend Developer Career Path](https://scrimba.com/learn/frontend/) created by Karl Hadwen.
+
+#### misc misc
+happy halloween 
