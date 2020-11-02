@@ -29,7 +29,7 @@ export const Spinner = styled.div`
         background-repeat: no-repeat;
         margin-top: -150px;
         margin-left: -75px;
-        height: 150px;
+        width: 150px;
         height: 150px;
         animation-name: spin;
         animation-duration: 1000ms;

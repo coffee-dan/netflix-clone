@@ -11,15 +11,15 @@ import { FooterContainer } from './footer'
 // considering infinite scroll
 
 export function BrowseContainer() {
-    const [category, setCategory] = useState('series')
-    const [profile, setProfile] = useState({})
-    const [loading, setLoading] = useState(true)
-    const [searchTerm, setSearchTerm] = useState('')
+    const [ category, setCategory ] = useState('series')
+    const [ profile, setProfile ] = useState({})
+    const [ loading, setLoading ] = useState(true)
+    const [ searchTerm, setSearchTerm ] = useState('')
 
-    const { firebase } = useContext(FirebaseContext)
+    const { firebase } = useContext( FirebaseContext )
 
     const user = {
-        displayName: "dan",
+        displayName: "Daniel",
         photoURL: "1"
     }
 
