@@ -10,7 +10,7 @@ import { FooterContainer } from './footer'
 // can work with FooterContainer to make it conditionally appear, especially
 // considering infinite scroll
 
-export function BrowseContainer() {
+export function BrowseContainer({ slides }) {
     const [ category, setCategory ] = useState('series')
     const [ profile, setProfile ] = useState({})
     const [ loading, setLoading ] = useState(true)
@@ -78,6 +78,10 @@ export function BrowseContainer() {
                     <Header.PlayButton>Play</Header.PlayButton>
                 </Header.Feature>
             </Header>
+
+            {/* <Card.Group>
+            </Card.Group> */}
+
             <FooterContainer />
         </>
     ) : (
