@@ -1,6 +1,6 @@
 // Browse container
 import React, { useState, useContext, useEffect } from 'react'
-
+import Fuse from 'fuse.js'
 import { Card, Loading, Header } from '../components'
 import * as ROUTES from '../constants/routes'
 import { FirebaseContext } from '../context/firebase'
@@ -36,6 +36,21 @@ export function BrowseContainer({ slides }) {
             setLoading( false )
         }, 3000)
     }, [user])
+
+    // With enough of a change to searchTerm a fuse live search will be sent to search
+    // through the given key fields. the results of this search are ranked
+    useEffect(() => {
+        const fuse = new Fuse(slideRows, { keys: ['data.description', 'data.title', 'data.genre'] })
+        const results = fuse.search( searchTerm ).map(({ item }) => item)
+        if (slideRows.length > 0 && searchTerm.length > 3 && results.length > 0 ) {
+            // show results only when the searchTerm is longer than 3 and there are results to show
+            setSlideRows( results )
+        } else {
+            // otherwise just show the normal cards
+            setSlideRows( slides[ category ] )
+        }
+
+    }, [searchTerm])
 
     return profile.displayName ? (
         <>
