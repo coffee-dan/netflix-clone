@@ -35,13 +35,18 @@ export default function Signup() {
                     photoURL: Math.floor( Math.random() * 5 ) + 1,
                 })
                 .then(() => {
-                    // clearing out form values so information does not persist
-                    setEmailAddress('')
-                    setPassword('')
-                    setError('')
+                    // would clear out form values so information does not persist except that React
+                    // handles that on its own by unmounting the component thus clearing fields
                     history.push(ROUTES.BROWSE)
                 })
-            ).catch((error) => setError(error.message))
+            )
+            .catch(( error ) => {
+                // firstName is never cleared as it is not information that would ever cause an 
+                // error and it is also not information that needs to be kept secret
+                setEmailAddress('')
+                setPassword('')
+                setError(error.message)
+            })
     }
 
     return (
