@@ -1,7 +1,7 @@
 // Browse container
 import React, { useState, useContext, useEffect } from 'react'
 import Fuse from 'fuse.js'
-import { Card, Loading, Header } from '../components'
+import { Card, Loading, Header, Player } from '../components'
 import * as ROUTES from '../constants/routes'
 import { FirebaseContext } from '../context/firebase'
 import { SelectProfileContainer } from './profiles'
@@ -42,11 +42,12 @@ export function BrowseContainer({ slides }) {
     useEffect(() => {
         const fuse = new Fuse(slideRows, { keys: ['data.description', 'data.title', 'data.genre'] })
         const results = fuse.search( searchTerm ).map(({ item }) => item)
+
         if (slideRows.length > 0 && searchTerm.length > 3 && results.length > 0 ) {
             // show results only when the searchTerm is longer than 3 and there are results to show
             setSlideRows( results )
         } else {
-            // otherwise just show the normal cards
+            // otherwise just show the normal cards 
             setSlideRows( slides[ category ] )
         }
 
@@ -120,7 +121,10 @@ export function BrowseContainer({ slides }) {
                             ))}
                         </Card.Entities>
                         <Card.Feature category={ category }>
-                            <p>I am the feature!</p>
+                            <Player>
+                                <Player.Button />
+                                <Player.Video />
+                            </Player>
                         </Card.Feature>
                     </Card>
                 ))}
