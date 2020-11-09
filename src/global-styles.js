@@ -1,6 +1,5 @@
 // Global styles that act upon html and body, and are imported in at
 // the entry point file index.js
-
 import { createGlobalStyle } from 'styled-components'
 
 export const GlobalStyles = createGlobalStyle`

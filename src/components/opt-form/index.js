@@ -2,7 +2,7 @@
 import React from 'react'
 import { Container, Input, Button, Text, Break } from './styles/opt-form'
 // webpack file-loader image imports
-import chevronRightIcon from '../../../images/icons/chevron-right.png'
+// import chevronRightIcon from '%PUBLIC_URL%/images/icons/chevron-right.png'
 
 export default function OptForm({ children, ...restProps }) {
     return <Container {...restProps}>{children}</Container>
@@ -15,7 +15,7 @@ OptForm.Input = function OptFormInput({ ...restProps }) {
 OptForm.Button = function OptFormButton({ children, ...restProps }) {
     return (
         <Button {...restProps}>
-            {children} <img src={ chevronRightIcon } alt="Try Now"/>
+            {children} <img src='/images/icons/chevron-right.png' alt="Try Now"/>
         </Button>
     )
 }

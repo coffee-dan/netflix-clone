@@ -1,9 +1,6 @@
 // Accordion Component
 import React, { useState, useContext, createContext } from 'react'
 import { Body, Title, Header, Container, Inner, Item, Frame } from './styles/accordion'
-// webpack url-loader image imports
-import closeSlimIcon from '../../../images/icons/close-slim.png'
-import addIcon       from '../../../images/icons/add.png'
 
 // Using state to keep track of if accordion is open
 // ToggleContext shares the toggle functionality to anywhere within this
@@ -49,9 +46,9 @@ Accordion.Header = function AccordionHeader({ children, ...restProps }) {
         <Header onClick={() => setToggleShow(!toggleShow)} {...restProps}>
             {children}
             {toggleShow ? (
-                    <img src={ closeSlimIcon } alt="Close" />
+                    <img src='/images/icons/close-slim.png' alt="Close" />
                 ) : (
-                    <img src={ addIcon } alt="Open" />
+                    <img src='/images/icons/add.png' alt="Open" />
                 )
             }
         </Header>

@@ -28,6 +28,21 @@ export const List = styled.ul`
     flex-direction: row;
 `
 
+// Name
+export const Name = styled.p`
+    color: #808080;
+    text-overflow: ellipsis;
+    font-size: 16px;
+    cursor: pointer;
+
+    &:hover {
+        font-weight: bold;
+        color: #e5e5e5;
+    }
+`
+
+
+
 // User
 export const User = styled.li`
     max-height: 200px;
@@ -38,7 +53,8 @@ export const User = styled.li`
 
    
     
-    &:hover ${Name} {
+    /* &:hover ${Name} { */
+    &:hover Profiles.Name {
         font-weight: bold;
         color: white;
     }
@@ -61,15 +77,3 @@ export const Picture = styled.img`
     }
 `
 
-// Name
-export const Name = styled.p`
-    color: #808080;
-    text-overflow: ellipsis;
-    font-size: 16px;
-    cursor: pointer;
-
-    &:hover {
-        font-weight: bold;
-        color: #e5e5e5;
-    }
-`

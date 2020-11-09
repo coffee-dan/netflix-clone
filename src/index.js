@@ -5,6 +5,8 @@ import { App } from './app'
 import { FirebaseContext } from './context/firebase'
 import firebaseConfig from './config.json'
 
+import reportWebVitals from './reportWebVitals';
+
 // import { seedDatabase } from './seed'
 
 // Your web app's Firebase configuration
@@ -22,11 +24,16 @@ const firebase = window.firebase.initializeApp( firebaseConfig )
 // Using fragment to ensure only one parent element is sent to render()
 // while still including GlobalStyles
 ReactDOM.render(
-    <>
+    <React.StrictMode>
         <FirebaseContext.Provider value={{ firebase: window.firebase }}>
             <GlobalStyles />
             <App />
         </FirebaseContext.Provider>
-    </>, 
+    </React.StrictMode>, 
     document.getElementById('root')
 );
+
+// If you want to start measuring performance in your app, pass a function
+// to log results (for example: reportWebVitals(console.log))
+// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+reportWebVitals();
