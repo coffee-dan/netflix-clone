@@ -1,9 +1,6 @@
 // Accordion Component
 import React, { useState, useContext, createContext } from 'react'
 import { Body, Title, Header, Container, Inner, Item, Frame } from './styles/accordion'
-// webpack url-loader image imports
-// import closeSlimIcon from '%PUBLIC_URL%/images/icons/close-slim.png'
-// import addIcon       from '%PUBLIC_URL%/images/icons/add.png'
 
 // Using state to keep track of if accordion is open
 // ToggleContext shares the toggle functionality to anywhere within this

@@ -1,3 +1,4 @@
+// Home page
 import React from 'react'
 import { FaqsContainer } from '../containers/faqs'
 import { JumbotronContainer } from '../containers/jumbotron'

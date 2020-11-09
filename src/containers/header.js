@@ -1,8 +1,7 @@
+// Header container
 import React from 'react'
 import { Header } from '../components'
 import * as ROUTES from '../constants/routes'
-// file-loader static resource imports
-// import logo from '%PUBLIC_URL%/images/misc/logo.svg'
 
 // takes in children to ensure this container is extensible
 export function HeaderContainer({ children }) {

@@ -2,12 +2,6 @@
 import styled from 'styled-components'
 import { Link as ReachRouterLink } from 'react-router-dom'
 
-// import { 
-//     Container, Base, 
-//     Title, Text, TextSmall,
-//     Link, Error, Input, 
-//     Submit } from './styles/form'
-
 export const Container = styled.section`
     display: flex;
     flex-direction: column;
