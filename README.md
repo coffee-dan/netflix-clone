@@ -7,6 +7,8 @@ $ yarn # npm install
 $ yarn build # npm run build
 ```
 
+Deployed using Firebase, [live demo here](https://netflix-zero.web.app)
+
 ## Development
 
 Run create-react-app development server in watch-mode to continually compile the JavaScript and output to [localhost:3000](http://localhost:3000/) as you work:
